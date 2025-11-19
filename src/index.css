@@ -387,7 +387,7 @@ body {
 
 .projects-section {
   position: relative;
-  background: radial-gradient(circle at top left, #241313 0, #090506 55%);
+  background: radial-gradient(circle at top left, #9f4040 0%, #090506 55%);
   padding: 5rem 0 4.5rem; /* same spacing format as about-section */
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;
@@ -944,5 +944,5 @@ body {
 }
 
 .about-cta-link:hover .about-cta-arrow {
-  transform: translateY(-1px) rotate(400deg);
+  transform: translateY(-1px) rotate(405deg);
 }
