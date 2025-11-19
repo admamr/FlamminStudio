@@ -1,0 +1,452 @@
+/* ============================
+   ROOT WRAPPER
+   ============================ */
+
+.staggered-menu-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 60; /* sits above hero */
+}
+
+/* Full-screen mode: wrapper is invisible, only children are clickable */
+.staggered-menu-wrapper.fixed-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 60;
+  overflow: hidden;
+
+  /* 👇 important: wrapper itself does NOT steal clicks */
+  pointer-events: none;
+}
+
+/* ============================
+     HEADER (LOGO + MENU TOGGLE)
+     ============================ */
+
+.staggered-menu-header {
+  position: fixed;
+  top: 1.5rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 80; /* above hero, below panel */
+  pointer-events: none; /* only inner shell is clickable */
+}
+
+.sm-header-shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  padding: 1.1rem 2rem;
+  border-radius: 999px;
+  background: transparent;
+  pointer-events: auto; /* re-enable clicks on logo + Menu */
+
+  transition: background 0.4s ease, backdrop-filter 0.4s ease,
+    -webkit-backdrop-filter 0.4s ease, box-shadow 0.4s ease,
+    border-color 0.4s ease, transform 0.3s ease, padding 0.3s ease;
+}
+
+/* glassy Apple-style when scrolled */
+.sm-header-shell--glass {
+  position: relative;
+  background: rgba(16, 16, 16, 0.379);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
+  transform: scale(0.96);
+  overflow: hidden;
+}
+
+.sm-header-shell--glass::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(
+      circle at 0% 0%,
+      rgba(255, 255, 255, 0.22) 0,
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(255, 255, 255, 0.16) 0,
+      transparent 60%
+    );
+  opacity: 0.6;
+  mix-blend-mode: screen;
+  filter: blur(14px);
+  animation: glassFlow 14s ease-in-out infinite alternate;
+}
+
+@keyframes glassFlow {
+  0% {
+    transform: translate3d(-10%, -5%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(8%, 6%, 0) scale(1.05);
+  }
+}
+
+/* ============================
+     PANEL (SLIDING MENU)
+     ============================ */
+
+.staggered-menu-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(260px, 36vw, 420px);
+  height: 100%;
+  background: #ffffff;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem 2rem 2rem 2rem;
+  overflow-y: auto;
+  z-index: 90; /* above header */
+  pointer-events: auto; /* panel is fully interactive */
+}
+
+[data-position="left"] .staggered-menu-panel {
+  right: auto;
+  left: 0;
+}
+
+/* ============================
+     LOGO + TOGGLE (HEADER)
+     ============================ */
+
+.sm-logo {
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.sm-logo-img {
+  display: block;
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+}
+
+.sm-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #e9e9ef;
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  overflow: visible;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.sm-toggle:hover {
+  color: var(--sm-accent, #d84040);
+  transform: scale(1.04);
+}
+
+.sm-toggle:focus-visible {
+  outline: 2px solid #ffffffaa;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.sm-toggle-textWrap {
+  position: relative;
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.sm-toggle-textInner {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.sm-toggle-line {
+  display: block;
+  height: 1em;
+  line-height: 1;
+}
+
+.sm-icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.sm-toggle:hover .sm-icon {
+  transform: rotate(12deg);
+}
+
+.sm-icon-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+}
+
+.sm-icon-line.sm-icon-line-v {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* ============================
+     PRELAYERS (SIDE COLORS)
+     ============================ */
+
+.sm-prelayers {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: clamp(260px, 36vw, 420px);
+  pointer-events: none;
+  z-index: 70; /* between hero and panel */
+}
+
+[data-position="left"] .sm-prelayers {
+  right: auto;
+  left: 0;
+}
+
+.sm-prelayer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* ============================
+     PANEL CONTENT
+     ============================ */
+
+.sm-panel-inner {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sm-panel-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.sm-panel-logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  filter: invert(1) brightness(0);
+}
+
+.sm-panel-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8e1616;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0;
+}
+
+.sm-panel-close-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.sm-panel-close:hover {
+  color: #d84040;
+}
+
+.sm-panel-list {
+  list-style: none;
+  margin: 1.8rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sm-panel-itemWrap {
+  position: relative;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.sm-panel-item {
+  position: relative;
+  color: #000;
+  font-weight: 600;
+  font-size: 3.2rem;
+  cursor: pointer;
+  line-height: 1;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  transition: background 0.25s, color 0.25s;
+  display: inline-block;
+  text-decoration: none;
+  padding-right: 1.4em;
+}
+
+.sm-panel-itemLabel {
+  display: inline-block;
+  will-change: transform;
+  transform-origin: 50% 100%;
+}
+
+.sm-panel-item:hover {
+  color: var(--sm-accent, #d84040);
+}
+
+/* numbering */
+.sm-panel-list[data-numbering] {
+  counter-reset: smItem;
+}
+
+.sm-panel-list[data-numbering] .sm-panel-item::after {
+  counter-increment: smItem;
+  content: counter(smItem, decimal-leading-zero);
+  position: absolute;
+  top: 0.1em;
+  right: 1.5em;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--sm-accent, #d84040);
+  letter-spacing: 0;
+  pointer-events: none;
+  user-select: none;
+  opacity: var(--sm-num-opacity, 0);
+}
+
+/* SOCIALS */
+.sm-socials {
+  margin-top: auto;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sm-socials-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--sm-accent, #d84040);
+  text-transform: uppercase;
+}
+
+.sm-socials-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.sm-socials-link {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #111;
+  text-decoration: none;
+  position: relative;
+  padding: 2px 0;
+  display: inline-block;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.sm-socials-list .sm-socials-link {
+  opacity: 1;
+}
+
+.sm-socials-list:hover .sm-socials-link {
+  opacity: 0.35;
+}
+
+.sm-socials-list:hover .sm-socials-link:hover {
+  opacity: 1;
+}
+
+.sm-socials-link:hover {
+  color: var(--sm-accent, #d84040);
+}
+
+/* ============================
+     RESPONSIVE
+     ============================ */
+
+@media (max-width: 1024px) {
+  .staggered-menu-panel,
+  .sm-prelayers {
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  .staggered-menu-wrapper[data-open] .sm-logo-img {
+    filter: invert(100%);
+  }
+
+  .staggered-menu-wrapper:not([data-open]) .sm-prelayers {
+    pointer-events: none;
+  }
+
+  .sm-panel-item {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .staggered-menu-panel {
+    padding: 1.8rem 1.6rem 1.8rem;
+  }
+
+  .sm-logo-img {
+    display: block;
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .sm-panel-item {
+    font-size: 2.6rem;
+  }
+}
