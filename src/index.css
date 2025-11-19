@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Space+Grotesk:wght@400;500;600;700&family=Electrolize&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap");
 
 /* RESET */
 * {
@@ -62,7 +63,7 @@ body {
 
 .splash-inner {
   font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+    "Segoe UI", sans-serif, "Zen Dots", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,7 +72,7 @@ body {
 
 /* Centered splash title */
 .splash-title {
-  font-family: "Orbitron", system-ui, sans-serif;
+  font-family: "Zen Dots", system-ui, sans-serif;
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-weight: 700;
   text-transform: uppercase;
@@ -87,7 +88,7 @@ body {
 /* "Activating…" line */
 .splash-subtitle {
   margin-top: 0.6rem;
-  font-family: "Electrolize", system-ui, sans-serif;
+  font-family: "Zen Dots", system-ui, sans-serif;
   font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -139,7 +140,7 @@ body {
 }
 
 .hero-badge {
-  font-family: "Electrolize", system-ui, sans-serif;
+  font-family: "Zen Dots", system-ui, sans-serif;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #8e1616;
@@ -187,7 +188,7 @@ body {
 }
 
 .hero-badge {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   opacity: 0.9;
   margin-bottom: 12px;
 }
@@ -356,7 +357,7 @@ body {
   letter-spacing: 0.18em;
   opacity: 1;
   margin-bottom: 12px;
-  font-family: "Electrolize", system-ui, sans-serif;
+  font-family: "Zen Dots", system-ui, sans-serif;
 }
 
 .section-subtitle {
@@ -410,7 +411,7 @@ body {
 }
 
 .projects-title {
-  font-family: "Electrolize", system-ui, sans-serif;
+  font-family: "Orbitron", system-ui, sans-serif;
   font-size: 2.4rem;
   line-height: 1.1;
 }
@@ -838,7 +839,7 @@ body {
 }
 
 .about-title {
-  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-family: "Orbitron", system-ui, sans-serif;
   font-size: 2.2rem;
   line-height: 1.15;
   color: #fbeaea;
