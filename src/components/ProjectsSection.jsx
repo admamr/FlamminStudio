@@ -4,10 +4,10 @@ import { gsap } from "gsap";
 import TextType from "./TextType";
 import CardSwap, { Card } from "./CardSwap";
 
-import rfGlobalImg from "../assets/projects/Flammin-1.jpg";
-import rhinoImg from "../assets/projects/CP2.png";
-import creativePlaceImg from "../assets/projects/CP1.png";
-import portfolioImg from "../assets/projects/Flammin-2.png";
+import rfGlobalImg from "../assets/projects/rfglobal-pr.jpg";
+import rhinoImg from "../assets/projects/rhino-pr.jpg";
+import creativePlaceImg from "../assets/projects/cp-pr.jpg";
+import portfolioImg from "../assets/projects/srf-pr.jpg";
 
 const ProjectsSection = () => {
   const sectionRef = useRef(null);
@@ -82,7 +82,7 @@ const ProjectsSection = () => {
           </p>
           <div className="projects-cta-wrapper fade-item">
             <a href="/work" className="projects-cta-link fade-item">
-              View Full Work ↗
+              View Full Work <span className="project-cta-arrow">↗</span>
             </a>
             <p className="projects-cta-coming-soon">
               More case studies, in-depth breakdowns

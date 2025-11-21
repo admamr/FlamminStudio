@@ -42,8 +42,7 @@ body {
 .splash-screen {
   position: fixed;
   inset: 0;
-  background: #ffffff;
-  color: #111111;
+  background: radial-gradient(circle at bottom right, #090506 0, #241313 55%);
   z-index: 10000;
   display: flex;
   align-items: center;
@@ -53,7 +52,7 @@ body {
 .splash-screen {
   position: fixed;
   inset: 0;
-  background: #ffffff;
+  background: radial-gradient(circle at bottom right, #090506 0, #241313 55%);
   color: #111111;
   z-index: 10000;
   display: flex;
@@ -77,13 +76,13 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.22em;
-  color: #111111;
+  color: #eeeeee;
 }
 
 .splash-title-dot {
   font-family: "Space Grotesk", system-ui, sans-serif;
   color: #8e1616;
-  font-size: 4rem; /* red dot */
+  font-size: 2rem; /* red dot */
 }
 
 /* "Activating…" line */
@@ -126,6 +125,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  color: #eeeeee;
 }
 
 /* if you already had this, keep it */
@@ -133,14 +133,15 @@ body {
   font-family: "Zen Dots", system-ui, sans-serif;
   font-size: 0.7em;
   margin-left: 0.1em;
+  color: #eeeeee;
 }
 
 @media (max-width: 600px) {
   .splash-title {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   .splash-subtitle {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 }
 /* ============================
@@ -399,7 +400,8 @@ body {
 
 .projects-section {
   position: relative;
-  background: radial-gradient(circle at top left, #9f4040 0%, #090506 55%);
+  background: radial-gradient(circle at bottom right, #090506 0, #241313 55%);
+
   padding: 5rem 0 4.5rem; /* same spacing format as about-section */
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;
@@ -423,8 +425,12 @@ body {
 
 .projects-title {
   font-family: "Orbitron", system-ui, sans-serif;
-  font-size: 2.4rem;
-  line-height: 1.1;
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
 }
 
 /* simple 1-col scaffold if you need cards later */
@@ -445,7 +451,7 @@ body {
 
 .projects-cta-coming-soon {
   margin-top: 12px;
-  font-size: 0.82rem;
+  font-size: 1rem;
   opacity: 0.8;
   color: #d84040;
   text-align: left;
@@ -461,7 +467,7 @@ body {
 }
 
 /* Responsive – projects section */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .section {
     padding: 64px 20px;
   }
@@ -471,7 +477,14 @@ body {
   }
 
   .projects-title {
-    font-size: 2rem;
+    font-size: 2.3rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.6rem;
+  }
+  .projects-cta-coming-soon {
+    font-size: 0.9rem;
   }
 }
 
@@ -500,6 +513,9 @@ body {
   .projects-cta-wrapper {
     align-items: flex-start;
     text-align: left;
+  }
+  .projects-cta-coming-soon {
+    font-size: 0.6rem;
   }
 }
 
@@ -614,7 +630,7 @@ body {
 /* top image */
 .project-card-media {
   width: 100%;
-  flex: 1.05;
+  flex: 1.1;
   background-size: cover;
   background-position: center;
   filter: saturate(1.1) contrast(1.05);
@@ -826,15 +842,23 @@ body {
   color: #eeeeee !important;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35) !important;
   transform: translateY(-2px) !important;
+} /* Arrow micro-animation */
+.project-cta-arrow {
+  display: inline-block;
+  transition: transform 0.18s ease-out;
+  padding-left: 5px;
 }
 
+.projects-cta-link:hover .project-cta-arrow {
+  transform: translateY(-1px) rotate(405deg);
+}
 /* ============================
    ABOUT SECTION
    ============================ */
 
 .about-section {
   position: relative;
-  background: radial-gradient(circle at top left, #241313 0, #090506 55%);
+  background: radial-gradient(circle at top right, #090506 0, #241313 55%);
   padding: 5rem 0 4.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -852,13 +876,14 @@ body {
 
 .about-title {
   font-family: "Orbitron", system-ui, sans-serif;
-  font-size: 2.2rem;
+  font-size: 2rem;
   line-height: 1.15;
   color: #fbeaea;
 }
 
 .about-title-highlight {
   color: #d84040;
+  font-family: "Zen Dots", system-ui, sans-serif;
 }
 
 .about-text {

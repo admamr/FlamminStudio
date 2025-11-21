@@ -52,8 +52,9 @@ const AboutSection = () => {
           <p className="section-eyebrow">About Flammin.Studio</p>
           <h2 className="about-title">
             Design driven{" "}
-            <span className="about-title-highlight">FRONTEND</span> for brands
-            that care about the details.
+            <span className="about-title-highlight">FRONTEND</span> for{" "}
+            <span className="about-title-highlight">Brands</span> that care
+            about the details.
           </h2>
           <p className="about-text">
             I mix UI design, frontend engineering, and performance thinking to
