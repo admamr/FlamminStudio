@@ -399,7 +399,7 @@ export const StaggeredMenu = ({
           <div className="sm-logo" aria-label="Logo">
             <img
               src={logoUrl}
-              alt="Logo"
+              alt="Flammin Studio logo"
               className="sm-logo-img"
               draggable={false}
             />

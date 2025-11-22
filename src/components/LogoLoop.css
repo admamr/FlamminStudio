@@ -1,0 +1,82 @@
+.logo-loop {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 18px 0;
+}
+
+.logo-loop__track {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.75rem;
+  white-space: nowrap;
+  animation: logo-loop-scroll 18s linear infinite;
+  will-change: transform;
+  position: relative;
+  z-index: 1; /* 👈 behind the blur overlays */
+}
+
+/* 🔥 Pause scrolling when hovering over the strip or any icon */
+.logo-loop:hover .logo-loop__track,
+.logo-loop__item:hover ~ .logo-loop__track {
+  animation-play-state: paused;
+}
+
+/* 🔥 blur + fade on both sides */
+.logo-loop::before,
+.logo-loop::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 14%; /* how wide the blur zone is */
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+
+  /* blur the underlying logos */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.logo-loop::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(5, 3, 3, 0.094),
+    rgba(5, 3, 3, 0.267),
+    transparent
+  );
+}
+
+.logo-loop::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(5, 3, 3, 0.094),
+    rgba(5, 3, 3, 0.267),
+    transparent
+  );
+}
+
+/* icon styling stays the same */
+.logo-loop__item {
+  font-size: 2.25rem;
+  color: #e9e9e9;
+  flex: 0 0 auto;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.logo-loop__item:hover {
+  transform: scale(1.2) translateY(-2px);
+  color: #d84040;
+}
+
+/* your existing keyframes */
+@keyframes logo-loop-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

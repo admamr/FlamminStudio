@@ -1,7 +1,8 @@
 // src/components/Hero.jsx
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import heroVideo from "../assets/hero-bg.mp4";
+import heroVideo from "../assets/hero-bg-2.mp4";
+import heroPoster from "../assets/hero-poster.jpg";
 
 function Hero({ animate }) {
   const heroRef = useRef(null);
@@ -117,7 +118,15 @@ function Hero({ animate }) {
     <section className="hero" id="hero" ref={heroRef}>
       {/* 🔥 Video Background with parallax */}
       <div className="hero-bg" ref={bgRef}>
-        <video src={heroVideo} autoPlay loop muted playsInline />
+        <video
+          src={heroVideo}
+          poster={heroPoster}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+        />
       </div>
 
       {/* Overlay */}

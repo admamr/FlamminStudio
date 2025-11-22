@@ -53,7 +53,7 @@ const AboutSection = () => {
           <h2 className="about-title">
             Design driven{" "}
             <span className="about-title-highlight">FRONTEND</span> for{" "}
-            <span className="about-title-highlight">Brands</span> that care
+            <span className="about-title-highlight">BRANDS</span> that care
             about the details.
           </h2>
           <p className="about-text">

@@ -7,6 +7,9 @@ import StaggeredMenu from "./components/StaggeredMenu";
 import LogoSvg from "./assets/LOGO.svg";
 import ProjectsSection from "./components/ProjectsSection";
 import AboutSection from "./components/AboutSection";
+import TechStackStrip from "./components/TechStackStrip";
+import NewsletterBanner from "./components/NewsletterBanner";
+import Footer from "./components/Footer";
 
 const menuItems = [
   { label: "Home", ariaLabel: "Go to home", link: "#hero" },
@@ -34,7 +37,7 @@ function App() {
     let current = 0;
     const target = 100;
     const step = 1;
-    const intervalMs = 45;
+    const intervalMs = 30;
 
     const intervalId = setInterval(() => {
       current += step;
@@ -131,6 +134,9 @@ function App() {
         <Hero animate={heroShouldAnimate} />
         <ProjectsSection />
         <AboutSection />
+        <TechStackStrip />
+        <NewsletterBanner />
+        <Footer />
       </main>
     </div>
   );

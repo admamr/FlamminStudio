@@ -4,10 +4,10 @@ import { gsap } from "gsap";
 import TextType from "./TextType";
 import CardSwap, { Card } from "./CardSwap";
 
-import rfGlobalImg from "../assets/projects/rfglobal-pr.jpg";
-import rhinoImg from "../assets/projects/rhino-pr.jpg";
-import creativePlaceImg from "../assets/projects/cp-pr.jpg";
-import portfolioImg from "../assets/projects/srf-pr.jpg";
+import rfGlobalImg from "../assets/projects/rfglobal-pr.webp";
+import rhinoImg from "../assets/projects/rhino-pr.webp";
+import creativePlaceImg from "../assets/projects/cp-pr.webp";
+import portfolioImg from "../assets/projects/srf-pr.webp";
 
 const ProjectsSection = () => {
   const sectionRef = useRef(null);
@@ -53,6 +53,7 @@ const ProjectsSection = () => {
       id="work"
       ref={sectionRef}
       className={`projects-section fade-in-section ${visible ? "visible" : ""}`}
+      aria-labelledby="work-heading"
     >
       {/* HEADER */}
       <div className="section-inner">
