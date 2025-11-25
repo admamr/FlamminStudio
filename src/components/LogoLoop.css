@@ -13,7 +13,7 @@
   animation: logo-loop-scroll 18s linear infinite;
   will-change: transform;
   position: relative;
-  z-index: 1; /* 👈 behind the blur overlays */
+  z-index: 1;
 }
 
 /* 🔥 Pause scrolling when hovering over the strip or any icon */
@@ -28,12 +28,10 @@
   content: "";
   position: absolute;
   top: 0;
-  width: 14%; /* how wide the blur zone is */
+  width: 17%;
   height: 100%;
   pointer-events: none;
   z-index: 2;
-
-  /* blur the underlying logos */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -42,7 +40,7 @@
   left: 0;
   background: linear-gradient(
     to right,
-    rgba(5, 3, 3, 0.094),
+    rgba(5, 3, 3, 0),
     rgba(5, 3, 3, 0.267),
     transparent
   );
@@ -52,7 +50,7 @@
   right: 0;
   background: linear-gradient(
     to left,
-    rgba(5, 3, 3, 0.094),
+    rgba(5, 3, 3, 0),
     rgba(5, 3, 3, 0.267),
     transparent
   );

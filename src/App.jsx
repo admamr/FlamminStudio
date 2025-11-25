@@ -8,7 +8,7 @@ import LogoSvg from "./assets/LOGO.svg";
 import ProjectsSection from "./components/ProjectsSection";
 import AboutSection from "./components/AboutSection";
 import TechStackStrip from "./components/TechStackStrip";
-import NewsletterBanner from "./components/NewsletterBanner";
+import ClientsPreview from "./components/ClientsPreview";
 import Footer from "./components/Footer";
 
 const menuItems = [
@@ -135,7 +135,7 @@ function App() {
         <ProjectsSection />
         <AboutSection />
         <TechStackStrip />
-        <NewsletterBanner />
+        <ClientsPreview />
         <Footer />
       </main>
     </div>

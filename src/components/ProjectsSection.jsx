@@ -73,7 +73,7 @@ const ProjectsSection = () => {
               pauseDuration={1500}
               showCursor={true}
               cursorCharacter="|"
-              textColors={["#eeeeee", "#d84040"]}
+              textColors={["#1d1616", "#d84040"]}
             />
           </div>
 
