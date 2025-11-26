@@ -26,8 +26,8 @@
 }
 
 /* ============================
-     HEADER (LOGO + MENU TOGGLE)
-     ============================ */
+       HEADER (LOGO + MENU TOGGLE)
+       ============================ */
 
 .staggered-menu-header {
   position: fixed;
@@ -100,8 +100,8 @@
 }
 
 /* ============================
-     PANEL (SLIDING MENU)
-     ============================ */
+       PANEL (SLIDING MENU)
+       ============================ */
 
 .staggered-menu-panel {
   position: absolute;
@@ -126,8 +126,8 @@
 }
 
 /* ============================
-     LOGO + TOGGLE (HEADER)
-     ============================ */
+       LOGO + TOGGLE (HEADER)
+       ============================ */
 
 .sm-logo {
   display: flex;
@@ -221,8 +221,8 @@
 }
 
 /* ============================
-     PRELAYERS (SIDE COLORS)
-     ============================ */
+       PRELAYERS (SIDE COLORS)
+       ============================ */
 
 .sm-prelayers {
   position: absolute;
@@ -248,8 +248,8 @@
 }
 
 /* ============================
-     PANEL CONTENT
-     ============================ */
+       PANEL CONTENT
+       ============================ */
 
 .sm-panel-inner {
   position: relative;
@@ -412,8 +412,8 @@
 }
 
 /* ============================
-     RESPONSIVE
-     ============================ */
+       RESPONSIVE
+       ============================ */
 
 @media (max-width: 1024px) {
   .staggered-menu-panel,

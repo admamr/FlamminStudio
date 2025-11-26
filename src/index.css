@@ -39,7 +39,7 @@ body {
 .splash-screen {
   position: fixed;
   inset: 0;
-  background: #ffffff;
+  background: #eeeeee;
   color: #111111;
   z-index: 10000;
   display: flex;
@@ -68,9 +68,9 @@ body {
 }
 
 .splash-title-dot {
-  font-family: "zen dots", system-ui, sans-serif;
-  color: #8e1616;
-  font-size: 2.4rem;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  color: #d84040;
+  font-size: 3rem;
 }
 
 /* "Activating…" line */
@@ -81,7 +81,7 @@ body {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #8e1616;
+  color: #d84040;
   position: relative;
   transform: translate3d(0, 2px, 0);
   animation: splashFloat 0.8s ease-in-out infinite alternate;
@@ -129,59 +129,6 @@ body {
   font-size: 2rem;
   margin-left: 0.1em;
   color: #050505;
-}
-/* layered transition */
-.splash-layer {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at top left, #0b0606 0, #000000 55%);
-  transform-origin: 100% 100%; /* bottom right */
-  transform: scale(0);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 10001;
-}
-
-/* three slightly different tints, same effect as your menu glass */
-.splash-layer1 {
-  background: linear-gradient(135deg, #140707, #1f0c0c);
-}
-
-.splash-layer2 {
-  background: linear-gradient(135deg, #251010, #140707);
-}
-
-.splash-layer3 {
-  background: linear-gradient(135deg, #8e1616, #1d1616);
-}
-
-/* active state, each layer scales out from the corner and covers screen */
-.splash-layer--active {
-  animation: splashLayerExpand 0.9s ease forwards;
-}
-
-/* stagger, so they appear as stacked sheets, like the menu */
-.splash-layer2.splash-layer--active {
-  animation-delay: 0.12s;
-}
-
-.splash-layer3.splash-layer--active {
-  animation-delay: 0.24s;
-}
-
-@keyframes splashLayerExpand {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  45% {
-    transform: scale(1.05);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.25);
-    opacity: 0;
-  }
 }
 
 /* hide main app under splash, if you use this class */
@@ -450,8 +397,8 @@ body {
 }
 
 /* ============================
-   PROJECTS SECTION
-   ============================ */
+     PROJECTS SECTION
+     ============================ */
 
 .fade-item {
   opacity: 0;
@@ -462,22 +409,10 @@ body {
 
 .projects-section {
   position: relative;
-  background: #eeeeeecf;
+  background: #eeeeeead;
   padding: 5rem 0 4.5rem; /* same spacing format as about-section */
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;
-}
-
-.projects-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("./assets/texture-2.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.4;
-  z-index: 0;
 }
 
 /* Make sure content sits above bg + texture */
@@ -521,14 +456,14 @@ body {
   margin-top: 12px;
   font-size: 1rem;
   opacity: 0.8;
-  color: #d84040;
+  color: #8e1616;
   text-align: left;
   letter-spacing: 0.3px;
 }
 
 .projects-cta-note {
   font-size: 0.78rem;
-  color: #d84040;
+  color: #8e1616;
   opacity: 0.9;
   line-height: 1.4;
   margin-left: 0.2rem; /* tiny nudge to align with button text */
@@ -566,7 +501,7 @@ body {
   }
 
   .projects-title {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .section-eyebrow {
@@ -575,7 +510,7 @@ body {
   }
 
   .section-subtitle {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .projects-cta-wrapper {
@@ -584,6 +519,7 @@ body {
   }
   .projects-cta-coming-soon {
     font-size: 0.6rem;
+    font-weight: bold;
   }
 }
 
@@ -668,8 +604,8 @@ body {
 }
 
 /* ============================
-   PROJECT CARDS
-   ============================ */
+     PROJECT CARDS
+     ============================ */
 
 .project-card {
   position: absolute;
@@ -859,8 +795,8 @@ body {
 }
 
 /* ============================
-   GLOBAL HOVER OVERRIDES
-   ============================ */
+     GLOBAL HOVER OVERRIDES
+     ============================ */
 
 /* hero primary button */
 .btn-primary:hover,
@@ -1107,18 +1043,6 @@ body {
 .clients-section {
   position: relative;
   background-color: #eeeeeead;
-}
-
-.clients-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("./assets/texture.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.2;
-  z-index: 0;
 }
 
 .clients-section > * {

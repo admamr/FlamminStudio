@@ -3,64 +3,73 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  transform: translate(25%) scale(1);
+  transform: translate(22%, 10px) scale(1);
   transform-origin: bottom right;
-  perspective: 900px;
+  perspective: 1400px;
   overflow: visible;
 }
 
+/* Card base, do not change */
 .card {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 12px;
-  border: 1px solid #fff;
-  background: #000;
+  top: 40%;
+  left: 90%;
   border-radius: 15px;
+  border: 1px solid #ffffff;
+  background: #000000;
   transform-style: preserve-3d;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
-/* ====== TABLET (shrink a bit) ====== */
-@media (max-width: 1024px) {
-  .card-swap-container {
-    right: 0;
-    left: auto;
-    bottom: 0;
-    transform: translate(1%) scale(0.8);
+/* ====== TABLET (shrink and reposition) ======
+   iPad style widths */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .projects-cards-swap-shell .card-swap-container {
+    bottom: auto !important;
+    right: auto !important;
+    left: 55% !important;
+    top: 170px !important;
+    transform: translateX(-50%) scale(0.78) !important;
+    transform-origin: top center !important;
+  }
+
+  .projects-cards-swap-shell {
+    height: 380px;
+    overflow: visible;
   }
 }
 
-/* ====== MOBILE (bigger & centered) ====== */
+/* ====== REGULAR MOBILE ====== */
 @media (max-width: 768px) {
-  .card-swap-container {
-    position: absolute;
-    left: 50%;
-    top: 200px;
-    transform: translateX(-50%) scale(0.6);
+  .projects-cards-swap-shell .card-swap-container {
+    top: 100px;
+    left: 25% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translateX(-50%) scale(0.62) !important;
     transform-origin: top center;
   }
+
   .projects-cards-swap-shell {
-    height: 400px; /* adjust until it fits perfectly */
-    overflow: hidden; /* stops the swap animation from pushing the page */
+    height: 430px;
     position: relative;
+    overflow: visible;
   }
 }
 
-/* extra tweak for very small phones */
+/* ====== SMALL MOBILE ====== */
 @media (max-width: 480px) {
-  .card-swap-container {
-    position: absolute;
-    left: 50%;
-    top: 200px;
-    transform: translateX(-50%) scale(0.6);
-    transform-origin: top center;
+  .projects-cards-swap-shell .card-swap-container {
+    top: 100px;
+    left: 25px !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translateX(-50%) scale(0.62) !important;
   }
+
   .projects-cards-swap-shell {
-    height: 400px; /* adjust until it fits perfectly */
-    overflow: hidden; /* stops the swap animation from pushing the page */
-    position: relative;
+    height: 420px;
   }
 }

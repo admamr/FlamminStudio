@@ -6,6 +6,7 @@
 .text-type__cursor {
   margin-left: 0.25rem;
   display: inline-block;
+  color: #d84040;
   opacity: 1;
 }
 
